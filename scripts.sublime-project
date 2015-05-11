@@ -1,0 +1,34 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": ".",
+			"name": "Root",
+			"folder_exclude_patterns": [
+				"node_modules",
+				"remote",
+				"local",
+			],
+			"file_exclude_patterns":
+			[
+			]
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/",
+			"name": "Scripts",
+			"folder_exclude_patterns": [
+			],
+			"file_exclude_patterns":
+			[
+				".gitattributes",
+				".gitignore",
+				"Gruntfile.js",
+				"package.json",
+				"README.md",
+				"scripts.sublime-project",
+			]
+		}
+	]
+}
