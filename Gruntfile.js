@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 		 version: {
 		 	readme: {
         		options: {
-            	prefix: 'Version\\ \\s'
+            	prefix: 'Version\ \s*'
         		},
         		src: [ '<%= rdm %>' ],
    		   }
