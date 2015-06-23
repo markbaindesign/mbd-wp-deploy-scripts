@@ -5,16 +5,18 @@ LOCAL_PROJECT_NAME=""
 LOCAL_DB_NAME=""
 LOCAL_DB_USER=""
 LOCAL_DB_PASS=""
+# Special characters must be escaped!
 
 # You shouldn't need to edit these:
 NOW=$(date +"%Y-%m-%d-%H%M")
-LOCAL_FILE="$LOCAL_PROJECT_NAME.local.tar"
-LOCAL_PROJECT_ROOT_DIR="c/xampp/htdocs/$LOCAL_PROJECT_NAME"
-LOCAL_DESTINATION_DIR="/$LOCAL_PROJECT_ROOT_DIR/deploy/$NOW"
+LOCAL_FILE="$LOCAL_PROJECT_NAME.remote.tar"
+LOCAL_PROJECT_ROOT_DIR="home/markba/www/dev/$LOCAL_PROJECT_NAME"
+LOCAL_DESTINATION_DIR="/$LOCAL_PROJECT_ROOT_DIR/export/$NOW"
 LOCAL_TMP_DIR="/$LOCAL_PROJECT_ROOT_DIR/tmp"
 LOCAL_HTTPDOCS_DIR="/$LOCAL_PROJECT_ROOT_DIR/httpdocs"
-LOCAL_DB_FILE="$LOCAL_DB_NAME.local.sql"
-FILES_TO_EXCLUDE="/$LOCAL_PROJECT_ROOT_DIR/scripts/local/local-export-exclude.txt"
+LOCAL_DB_FILE="$LOCAL_DB_NAME.remote.sql"
+FILES_TO_EXCLUDE="/$LOCAL_PROJECT_ROOT_DIR/scripts/remote-export-exclude.txt"
+
 HTTPDOCS_TRANSFORM="s,^$LOCAL_PROJECT_ROOT_DIR/httpdocs,httpdocs,"
 DB_TRANSFORM="s,^$LOCAL_PROJECT_ROOT_DIR/tmp,database,"
 
@@ -40,6 +42,3 @@ mv $LOCAL_TMP_DIR/$LOCAL_FILE.gz $LOCAL_DESTINATION_DIR
 # Clean up
 rm $LOCAL_TMP_DIR/$LOCAL_DB_FILE
 rm -rf $LOCAL_TMP_DIR
-
-# make a noise!
-echo -en "\007" 
