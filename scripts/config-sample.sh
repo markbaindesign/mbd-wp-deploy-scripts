@@ -3,9 +3,16 @@
 # Local environmental variables
 
 ## Paths
+### No leading slashes!
 
 ### Local project name for naming archives
 LOCAL_PROJECT_NAME=""
+
+### Local root directory
+### i.e. 
+### LOCAL_ROOT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts"
+LOCAL_ROOT_DIR=""
+
 
 ### Directory to target when importing/exporting
 ### i.e. 
@@ -40,6 +47,11 @@ LOCAL_DB_PASS=""
 
 ### Remote project name for naming archives
 REMOTE_PROJECT_NAME=""
+
+### Remote root directory
+### i.e. 
+### REMOTE_EXPORT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts"
+REMOTE_ROOT_DIR=""
 
 ### Directory to target when importing/exporting
 ### i.e. 
