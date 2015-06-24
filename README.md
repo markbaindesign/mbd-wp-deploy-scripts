@@ -20,6 +20,6 @@ Just some scripts to automate the process of moving WordPress installs from loca
 
 * Make copies of all `-sample` files with you own project variables and data, removing the suffix.
 * IMPORTANT: Add `config.sh` to your project `.gitignore`. This file contains sensitive data and, once added to a repo, can never truly be deleted!
-* Upload the `remote-`files to your remote server.
+* Copy `config.sh`and all `remote-`files to your remote server.
 * IMPORTANT: The `-import`scripts delete existing files. Always make a backup before you run these!!!
 * Run the scripts when required.
