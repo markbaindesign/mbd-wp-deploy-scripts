@@ -15,7 +15,7 @@ echo -ne 'Complete!\n'
 
 # Copy wp-config to temp directory
 cp  /$REMOTE_TARGET_DIR/wp-config.php /$REMOTE_TMP_DIR/
-echo 'Copying config...';
+echo 'Copying config to temporary dir...';
 echo -ne 'Complete!\n'
 
 # Create a backup of the local project
@@ -39,7 +39,7 @@ echo -ne 'Complete!\n'
 
 # Copy wp-config to target directory
 cp  /$REMOTE_TMP_DIR/wp-config.php /$REMOTE_TARGET_DIR
-echo 'Copying config...';
+echo 'Copying config to target dir...';
 echo -ne 'Complete!\n'
 
 # Uncompress the archive
@@ -63,7 +63,12 @@ echo -ne 'Complete!\n'
 
 # Copy files to target directory
 cp  -a /$REMOTE_TMP_DIR/files/. /$REMOTE_TARGET_DIR/
-echo 'Copying files...';
+echo -ne 'Copying files... #####                     (33%)\r'
+sleep 1
+echo -ne 'Copying files... #############             (66%)\r'
+sleep 1
+echo -ne 'Copying files... #######################   (100%)\r'
+echo -ne '\n'
 echo -ne 'Complete!\n'
 
 rm -rf /$REMOTE_TMP_DIR/
