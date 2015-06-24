@@ -1,1 +1,5 @@
 node_modules
+scripts.sublime-workspace
+config.sh
+local-export-exclude.txt
+remote-export-exclude.txt
