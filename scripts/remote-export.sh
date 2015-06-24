@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Edit these variables:
-LOCAL_PROJECT_NAME=""
-LOCAL_DB_NAME=""
-LOCAL_DB_USER=""
-LOCAL_DB_PASS=""
-# Special characters must be escaped!
+# Accesss the variables:
+source config.sh
 
 # You shouldn't need to edit these:
 NOW=$(date +"%Y-%m-%d-%H%M")

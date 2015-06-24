@@ -1,20 +1,17 @@
 #!/bin/bash
 
-# Edit these variables:
-LOCAL_PROJECT_NAME=""
-LOCAL_DB_NAME=""
-LOCAL_DB_USER=""
-LOCAL_DB_PASS=""
+# Accesss the variables:
+source config.sh
 
 # You shouldn't need to edit these:
 NOW=$(date +"%Y-%m-%d-%H%M")
 LOCAL_FILE="$LOCAL_PROJECT_NAME.local.tar"
 LOCAL_PROJECT_ROOT_DIR="c/xampp/htdocs/$LOCAL_PROJECT_NAME"
-LOCAL_DESTINATION_DIR="/$LOCAL_PROJECT_ROOT_DIR/deploy/$NOW"
+LOCAL_DESTINATION_DIR="/$LOCAL_PROJECT_ROOT_DIR/export/$NOW"
 LOCAL_TMP_DIR="/$LOCAL_PROJECT_ROOT_DIR/tmp"
 LOCAL_HTTPDOCS_DIR="/$LOCAL_PROJECT_ROOT_DIR/httpdocs"
 LOCAL_DB_FILE="$LOCAL_DB_NAME.local.sql"
-FILES_TO_EXCLUDE="/$LOCAL_PROJECT_ROOT_DIR/scripts/local/local-export-exclude.txt"
+FILES_TO_EXCLUDE="local-export-exclude.txt"
 HTTPDOCS_TRANSFORM="s,^$LOCAL_PROJECT_ROOT_DIR/httpdocs,httpdocs,"
 DB_TRANSFORM="s,^$LOCAL_PROJECT_ROOT_DIR/tmp,database,"
 
