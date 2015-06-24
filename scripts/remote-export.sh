@@ -1,40 +1,84 @@
 #!/bin/bash
-
 # Accesss the variables:
 source config.sh
 
 # You shouldn't need to edit these:
-NOW=$(date +"%Y-%m-%d-%H%M")
-LOCAL_FILE="$LOCAL_PROJECT_NAME.remote.tar"
-LOCAL_PROJECT_ROOT_DIR="home/markba/www/dev/$LOCAL_PROJECT_NAME"
-LOCAL_DESTINATION_DIR="/$LOCAL_PROJECT_ROOT_DIR/export/$NOW"
-LOCAL_TMP_DIR="/$LOCAL_PROJECT_ROOT_DIR/tmp"
-LOCAL_HTTPDOCS_DIR="/$LOCAL_PROJECT_ROOT_DIR/httpdocs"
-LOCAL_DB_FILE="$LOCAL_DB_NAME.remote.sql"
-FILES_TO_EXCLUDE="/$LOCAL_PROJECT_ROOT_DIR/scripts/remote-export-exclude.txt"
-
-HTTPDOCS_TRANSFORM="s,^$LOCAL_PROJECT_ROOT_DIR/httpdocs,httpdocs,"
-DB_TRANSFORM="s,^$LOCAL_PROJECT_ROOT_DIR/tmp,database,"
+REMOTE_NOW=$(date +"%Y-%m-%d-%H%M")
+REMOTE_FILE="$REMOTE_PROJECT_NAME.remote.tar"
+REMOTE_DESTINATION_DIR="$REMOTE_EXPORT_DIR/$REMOTE_NOW"
+REMOTE_TMP_DIR="$REMOTE_ROOT_DIR/tmp"
+REMOTE_DB_FILE="$REMOTE_DB_NAME.remote.sql"
+REMOTE_FILES_TO_EXCLUDE="remote-export-exclude.txt"
+REMOTE_FILES_TRANSFORM="s,^$REMOTE_TARGET_DIR,files,"
+REMOTE_DB_TRANSFORM="s,^$REMOTE_TMP_DIR,database,"
 
 # Create temp directory
-mkdir $LOCAL_TMP_DIR
+mkdir /$REMOTE_TMP_DIR
+mkdir /$REMOTE_TMP_DIR/database
+mkdir /$REMOTE_TMP_DIR/files
+echo 'Creating remote temp directory...';
+echo -ne 'Complete!\n'
 
 # Dump the DB into the temp dir
-mysqldump -u $LOCAL_DB_USER -p$LOCAL_DB_PASS $LOCAL_DB_NAME > $LOCAL_TMP_DIR/$LOCAL_DB_FILE
+mysqldump -u $REMOTE_DB_USER -p$REMOTE_DB_PASS $REMOTE_DB_NAME > /$REMOTE_TMP_DIR/$REMOTE_DB_FILE
+echo -ne 'Dumping the remote database... #####                     (33%)\r'
+sleep 1
+echo -ne 'Dumping the remote database... #############             (66%)\r'
+sleep 1
+echo -ne 'Dumping the remote database... #######################   (100%)\r'
+echo -ne '\n'
+echo -ne 'Complete!\n'
 
 # Archive the site files; flatten the tree structure.
-tar -cvf $LOCAL_TMP_DIR/$LOCAL_FILE -X $FILES_TO_EXCLUDE --transform $HTTPDOCS_TRANSFORM $LOCAL_HTTPDOCS_DIR
+tar -cf /$REMOTE_TMP_DIR/$REMOTE_FILE -X $REMOTE_FILES_TO_EXCLUDE --transform $REMOTE_FILES_TRANSFORM /$REMOTE_TARGET_DIR
+echo -ne 'Archiving remote target directory... #####                     (33%)\r'
+sleep 1
+echo -ne 'Archiving remote target directory... #############             (66%)\r'
+sleep 1
+echo -ne 'Archiving remote target directory... #######################   (100%)\r'
+echo -ne '\n'
+echo -ne 'Complete!\n'
 
 # Append it to the tarball; flatten the tree structure.
-tar --append --file=$LOCAL_TMP_DIR/$LOCAL_FILE --transform $DB_TRANSFORM $LOCAL_TMP_DIR/$LOCAL_DB_FILE
+tar --append --file=/$REMOTE_TMP_DIR/$REMOTE_FILE --transform $REMOTE_DB_TRANSFORM /$REMOTE_TMP_DIR/$REMOTE_DB_FILE
+echo -ne 'Appending database dump to tarball... #####                     (33%)\r'
+sleep 1
+echo -ne 'Appending database dump to tarball... #############             (66%)\r'
+sleep 1
+echo -ne 'Appending database dump to tarball... #######################   (100%)\r'
+echo -ne '\n'
+echo -ne 'Complete!\n'
 
 # Compress the tarball
-gzip -9 $LOCAL_TMP_DIR/$LOCAL_FILE
+gzip -9 /$REMOTE_TMP_DIR/$REMOTE_FILE
+echo -ne 'Compressing the tarball... #####                     (33%)\r'
+sleep 1
+echo -ne 'Compressing the tarball... #############             (66%)\r'
+sleep 1
+echo -ne 'Compressing the tarball... #######################   (100%)\r'
+echo -ne '\n'
+echo -ne 'Complete!\n'
+
+# Make a dir in export target dir for this archive
+mkdir /$REMOTE_DESTINATION_DIR
+echo 'Creating '$REMOTE_DESTINATION_DIR'...';
+echo -ne 'Complete!\n'
 
 # Move out of tmp
-mkdir $LOCAL_DESTINATION_DIR
-mv $LOCAL_TMP_DIR/$LOCAL_FILE.gz $LOCAL_DESTINATION_DIR
+mv /$REMOTE_TMP_DIR/$REMOTE_FILE.gz /$REMOTE_DESTINATION_DIR
+echo 'Moving the archive to '$REMOTE_DESTINATION_DIR'...';
+echo -ne 'Complete!\n'
 
 # Clean up
-rm $LOCAL_TMP_DIR/$LOCAL_DB_FILE
-rm -rf $LOCAL_TMP_DIR
+rm /$REMOTE_TMP_DIR/$REMOTE_DB_FILE
+echo 'Deleting '$REMOTE_TMP_DIR/$REMOTE_DB_FILE'...';
+echo -ne 'Complete!\n'
+
+rm -rf /$REMOTE_TMP_DIR
+
+
+# Celebrate!
+echo "Success!";
+
+# make a noise!
+echo -en "\007" 
