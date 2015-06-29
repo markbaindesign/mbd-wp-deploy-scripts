@@ -23,3 +23,16 @@ Just some scripts to automate the process of moving WordPress installs from loca
 * Copy `config.sh`and all `remote-`files to your remote server.
 * IMPORTANT: The `-import`scripts delete existing files. Always make a backup before you run these!!!
 * Run the scripts from the scripts dir when required.
+
+#### Updating to latest version
+If you use NPM to manage project dependencies, you can add the Github repo to `package.json`. 
+
+`"scripts": "markbaindesign/mbd-wp-deploy-scripts"`
+
+To get the latest version, run 
+
+`npm update scripts`
+
+The version will be updated in your `node_modules`directory. Files may need to also be copied elsewhere. 
+
+- Don't forget to also update the script files on the remote server! _
