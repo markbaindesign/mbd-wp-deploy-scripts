@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         		options: {
             	prefix: 'Version\ \s*'
         		},
-        		src: [ '<%= rdm %>' ],
+        		src: [ '<%= rdm %>', 'scripts/<%= rdm %>'  ],
    		   }
 		},
 
