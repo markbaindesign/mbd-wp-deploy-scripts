@@ -22,12 +22,7 @@
 			],
 			"file_exclude_patterns":
 			[
-				".gitattributes",
-				".gitignore",
-				"Gruntfile.js",
-				"package.json",
-				"README.md",
-				"scripts.sublime-project",
+
 			]
 		}
 	]

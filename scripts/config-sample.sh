@@ -21,7 +21,7 @@ LOCAL_TARGET_DIR=""
 
 ### Directory where the imported archive can be found
 ### i.e. 
-### LOCAL_EXPORT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts/import"
+### LOCAL_IMPORT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts/import"
 LOCAL_IMPORT_DIR=""
 
 ### Directory to output the archive
