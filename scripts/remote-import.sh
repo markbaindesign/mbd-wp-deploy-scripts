@@ -61,6 +61,9 @@ echo -ne 'Importing the database... #######################   (100%)\r'
 echo -ne '\n'
 echo -ne 'Complete!\n'
 
+# Replace all instances of the URL in the database
+php srdb.cli.php -h localhost -n $REMOTE_DB_NAME -u $REMOTE_DB_USER -p$REMOTE_DB_PASS -s $LOCAL_DOMAIN -r $REMOTE_DOMAIN
+
 # Copy files to target directory
 cp  -a /$REMOTE_TMP_DIR/files/. /$REMOTE_TARGET_DIR/
 echo -ne 'Copying files... #####                     (33%)\r'
@@ -86,6 +89,3 @@ echo -en "\007"
 
 # Celebrate!
 echo "Success!";
-
-# Reminder:
-echo "Don't forget to S&R the DB!";

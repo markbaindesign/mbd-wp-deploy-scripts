@@ -79,3 +79,8 @@ REMOTE_DB_USER=""
 ### WordPress remote database password
 ### Special characters must be escaped!
 REMOTE_DB_PASS=""
+
+# Domains
+## No trailing slash
+LOCAL_DOMAIN=""
+REMOTE_DOMAIN=""
