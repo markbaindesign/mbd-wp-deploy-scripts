@@ -6,28 +6,19 @@
 ### No leading slashes!
 
 ### Local project name for naming archives
-LOCAL_PROJECT_NAME=""
+### LOCAL_PROJECT_NAME="mbd-wp-deploy-scripts"
 
 ### Local root directory
-### i.e. 
 ### LOCAL_ROOT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts"
-LOCAL_ROOT_DIR=""
-
 
 ### Directory to target when importing/exporting
-### i.e. 
-### LOCAL_EXPORT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts/httpdocs"
-LOCAL_TARGET_DIR=""
+### LOCAL_TARGET_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts/httpdocs"
 
 ### Directory where the imported archive can be found
-### i.e. 
 ### LOCAL_IMPORT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts/import"
-LOCAL_IMPORT_DIR=""
 
 ### Directory to output the archive
-### i.e. 
 ### LOCAL_EXPORT_DIR="c/xampp/htdocs/mbd-wp-deploy-scripts/export"
-LOCAL_EXPORT_DIR=""
 
 ## WordPress
 
@@ -46,27 +37,19 @@ LOCAL_DB_PASS=""
 ## Paths
 
 ### Remote project name for naming archives
-REMOTE_PROJECT_NAME=""
+### REMOTE_PROJECT_NAME="mbd-wp-deploy-scripts"
 
 ### Remote root directory
-### i.e. 
-### REMOTE_EXPORT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts"
-REMOTE_ROOT_DIR=""
+### REMOTE_ROOT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts"
 
 ### Directory to target when importing/exporting
-### i.e. 
-### REMOTE_EXPORT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts/httpdocs"
-REMOTE_TARGET_DIR=""
+### REMOTE_TARGET_DIR="home/markba/www/dev/mbd-wp-deploy-scripts/httpdocs"
 
 ### Directory where the imported archive can be found
-### i.e. 
-### REMOTE_EXPORT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts/import"
-REMOTE_IMPORT_DIR=""
+### REMOTE_IMPORT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts/import"
 
 ### Directory to output the archive
-### i.e. 
 ### REMOTE_EXPORT_DIR="home/markba/www/dev/mbd-wp-deploy-scripts/export"
-REMOTE_EXPORT_DIR=""
 
 ## WordPress
 
