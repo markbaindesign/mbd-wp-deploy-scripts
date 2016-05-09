@@ -1,5 +1,8 @@
-node_modules
-scripts.sublime-workspace
 config.sh
+export
+httpdocs
+import
 local-export-exclude.txt
+node_modules
 remote-export-exclude.txt
+scripts.sublime-workspace
