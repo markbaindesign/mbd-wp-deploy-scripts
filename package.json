@@ -1,6 +1,6 @@
 {
   "name": "mbd-wp-deploy-scripts",
-  "version": "0.0.24",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/markbaindesign/mbd-wp-deploy-scripts"
